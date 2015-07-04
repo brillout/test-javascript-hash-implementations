@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>test</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+
+
+    <!-- http://point-at-infinity.org/jssha256/ -->
+    <script src='algos/jssha256.js'></script>
+
+    <!-- https://code.google.com/p/crypto-js/ -->
+    <!-- 16K -->
+    <script src="algos/crypto-js.js"></script>
+
+    <!-- https://github.com/vibornoff/asmcrypto.js/#download -->
+    <script src="algos/asmcrypto.js"></script>
+
+    <!-- https://github.com/sitegui/pbkdf-sha256-asm -->
+    <script src="algos/pbkdf_min.js"></script>
+
+    <!-- https://github.com/bitwiseshiftleft/sjcl -->
+    <!-- 28K -->
+    <script src="algos/sjcl.js"></script>
+
+    <!-- https://github.com/tonyg/js-nacl -->
+    <!-- 952K -->
+    <script src="algos/nacl_factory.js"></script>
+
+
+
+    <script src="jspm_packages/system.js"></script>
+
+  </head>
+  <body>
+    <div id="results"></div>
+    <script src='config.js'></script>
+    <script>
+      System.import('main');
+    </script>
+  </body>
+</html>
