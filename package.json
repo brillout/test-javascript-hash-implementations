@@ -1,6 +1,7 @@
 {
   "jspm": {
     "dependencies": {
+      "buffer-crc32": "npm:buffer-crc32@^0.2.5",
       "sha.js": "npm:sha.js@^2.4.2"
     },
     "devDependencies": {

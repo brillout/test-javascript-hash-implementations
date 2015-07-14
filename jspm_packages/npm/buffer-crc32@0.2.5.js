@@ -1,0 +1,1 @@
+module.exports = require("npm:buffer-crc32@0.2.5/index");
