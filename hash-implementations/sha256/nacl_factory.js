@@ -1,3 +1,4 @@
+"format global";
 var nacl_factory = {
   instantiate: function (requested_total_memory) {
    return (function (window, document) {

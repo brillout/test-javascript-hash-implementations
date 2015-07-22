@@ -1,4 +1,4 @@
-import IMPLEMENTATIONS from './implementations';
+import IMPLEMENTATIONS from './hash-implementations';
 
 const LIBS = [ 
     'three.min.js',
@@ -113,7 +113,6 @@ function sort_results(results){
             })
         );
     }
-    window.r=results; console.log(results);
 }
 
 var out = document.getElementById("results");

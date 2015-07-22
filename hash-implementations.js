@@ -3,17 +3,37 @@
 
 import createHash from 'sha.js';
 
-import pajhome from 'hash-implementations/pajhome_sha256';
-
-import jssha2 from 'hash-implementations/jsSha2/sha256';
-
-import forge from 'hash-implementations/forge.min';
-
-import chrisveness from 'hash-implementations/chrisveness_sha256';
-
-import BLAKE2s from 'hash-implementations/blake2s.min';
-
 import buffer_crc32 from 'buffer-crc32';
+
+import pajhome from 'hash-implementations/sha256/pajhome_sha256';
+
+import jssha2 from 'hash-implementations/sha256/jsSha2';
+
+import forge from 'hash-implementations/sha256/forge.min';
+
+import chrisveness from 'hash-implementations/sha256/chrisveness_sha256';
+
+import BLAKE2s from 'hash-implementations/blake2s/blake2s.min';
+
+import jssha256 from 'hash-implementations/sha256/jssha256';
+
+import 'hash-implementations/sha256/CryptoJS';
+
+import sjcl from "hash-implementations/sha256/sjcl";
+
+import "hash-implementations/sha256/asmcrypto";
+
+import "hash-implementations/sha3/CryptoJS";
+
+// format forced to global by preprending `"format global";` to source code
+import "hash-implementations/sha256/nacl_factory";
+
+// format forced to global by preprending `"format global";` to source code
+import "hash-implementations/sha256/pbkdf_min";
+
+
+// TODO; move CRC32 implementation source code from here to individual files
+
 
 const IMPLEMENTATIONS = [ 
     (function(){
@@ -98,8 +118,7 @@ const IMPLEMENTATIONS = [
         }
     },
 
-    // 
-    /* can't make it work
+    /* can't make it return right SHA-256 hahs
     (function(){
         var sha = Module.cwrap('sha_simple', 'string', ['string']);
         return {
