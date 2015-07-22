@@ -17,3 +17,8 @@ Even though the original source code weights 284 KB, extracting the code related
 ### Run the tests
 
 Go to http://brillout.github.io/test-javascript-hash-implementations/ and wait a bit.
+
+
+### Other benchmarks
+
+ - http://dominictarr.github.io/crypto-bench/, [source code](https://github.com/dominictarr/crypto-bench)
