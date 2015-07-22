@@ -120,7 +120,7 @@
   test('new buffer from buffer.toJSON() output', function(t) {
     if (typeof JSON === 'undefined') {
       t.end();
-      return ;
+      return;
     }
     var buf = new B('test');
     var json = JSON.stringify(buf);

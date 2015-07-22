@@ -4,7 +4,7 @@
   var vectors = require("hash-test-vectors");
   var Buffer = require("buffer").Buffer;
   var hexpp = require("../hexpp");
-  var createHash = require("../../sha.js@2.4.2");
+  var createHash = require("../index");
   function makeTest(alg, i, verbose) {
     var v = vectors[i];
     tape(alg + ': NIST vector ' + i, function(t) {
