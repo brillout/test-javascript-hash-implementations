@@ -116,7 +116,7 @@ function sort_results(results){
 }
 
 var out = document.getElementById("results");
-out.innerHTML = 'computing';
+out.innerHTML = 'computing...';
 
 function print_results(results, source_codes){
 
