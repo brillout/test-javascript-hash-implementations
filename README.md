@@ -1,6 +1,6 @@
 The goal is to find a JavaScript hash implementation that is both light and fast.
 The JavaScript is considered to be run in the browser.
-The hash implementations are tested on speed by hashing the source code of JavaScript libraries.
+The hash implementations are tested for speed by hashing the source code of JavaScript libraries.
 
 
 Tested are implementations for following Hash Functions
