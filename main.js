@@ -30,7 +30,17 @@ const PRECOMPUTED_RESULTS = {
         'raphael-min.js':             3380853797, // hex; 'c983bc25'
         'react-0.13.3.min.js':        855557035,  // hex; '32fec3ab'
         'three.min.js':               3718524366, // hex; 'dda42dce'
-    }
+    },
+    'md5': {
+        // computed with `md5sum` cli of GNU coreutils
+        'angular.min.js':             'b1137641dbb512a60e83d673f7e2d98f',
+        'd3.min.js':                  '5936da7688d010c60aaf8374f90fcc2b',
+        'jquery-2.1.4.min.js':        'f9c7afd05729f10f55b689f36bb20172',
+        'moment-with-locales.min.js': '372de03356dcf915b0d47862dfae2300',
+        'raphael-min.js':             'a04c1675e8c8e38fabc52a671c5a1f86',
+        'react-0.13.3.min.js':        'c3b6b1bdf51c9ef4ba3473a2e1dcb83a',
+        'three.min.js':               'dc74fdfec0aab5ad75af6b99e2c37cb0',
+    },
 }; 
 
 function req(url, callback) { 

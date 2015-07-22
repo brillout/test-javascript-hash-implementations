@@ -6,6 +6,7 @@ The hash implementations are tested for speed by hashing the source code of Java
 Tested are implementations for following Hash Functions
   - SHA-256
   - SHA-3
+  - MD5
   - CRC32
   - blake2s
 

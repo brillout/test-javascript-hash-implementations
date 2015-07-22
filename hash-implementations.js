@@ -2,36 +2,29 @@
 // https://github.com/Kukunin/asm.js-benchmark
 
 import createHash from 'sha.js';
-
-import buffer_crc32 from 'buffer-crc32';
-
 import pajhome from 'hash-implementations/sha256/pajhome_sha256';
-
 import jssha2 from 'hash-implementations/sha256/jsSha2';
-
 import forge from 'hash-implementations/sha256/forge.min';
-
 import chrisveness from 'hash-implementations/sha256/chrisveness_sha256';
-
-import BLAKE2s from 'hash-implementations/blake2s/blake2s.min';
-
 import jssha256 from 'hash-implementations/sha256/jssha256';
-
 import 'hash-implementations/sha256/CryptoJS';
-
 import sjcl from "hash-implementations/sha256/sjcl";
-
 import "hash-implementations/sha256/asmcrypto";
+import "hash-implementations/sha256/nacl_factory"; // format forced to global by preprending `"format global";` to source code
+import "hash-implementations/sha256/pbkdf_min"; // format forced to global by preprending `"format global";` to source code
+
+// list of implementations taken from http://stackoverflow.com/questions/1655769/fastest-md5-implementation-in-javascript
+import "hash-implementations/md5/myers";
+import "hash-implementations/md5/yamd5.min";
+import "hash-implementations/md5/CryptoJS";
+import SparkMD5 from "hash-implementations/md5/spark-md5.min";
+import "hash-implementations/md5/FastMD5"; // global export changed from `md5` to `FastMD5`
 
 import "hash-implementations/sha3/CryptoJS";
 
-// format forced to global by preprending `"format global";` to source code
-import "hash-implementations/sha256/nacl_factory";
+import BLAKE2s from 'hash-implementations/blake2s/blake2s.min';
 
-// format forced to global by preprending `"format global";` to source code
-import "hash-implementations/sha256/pbkdf_min";
-
-
+import buffer_crc32 from 'buffer-crc32';
 // TODO; move CRC32 implementation source code from here to individual files
 
 
@@ -649,6 +642,51 @@ const IMPLEMENTATIONS = [
             }
 
             return crc32(text);
+        } 
+    },
+
+    {
+        name: 'myers',
+        source: 'http://www.myersdaily.org/joseph/javascript/md5.js',
+        hash_function: 'md5',
+        compute: function(text){ 
+            return md5(text);
+        } 
+    },
+
+    {
+        name: 'yamd5',
+        source: 'https://github.com/gorhill/yamd5.js',
+        hash_function: 'md5',
+        compute: function(text){ 
+            return YaMD5.hashStr(text);
+        } 
+    },
+
+    {
+        name: 'CryptoJS',
+        source: 'https://code.google.com/p/crypto-js/#MD5',
+        hash_function: 'md5',
+        compute: function(text){ 
+            return CryptoJS.MD5(text).toString();
+        } 
+    },
+
+    {
+        name: 'SparkMD5',
+        source: 'https://github.com/satazor/SparkMD5',
+        hash_function: 'md5',
+        compute: function(text){ 
+            return SparkMD5.hash(text);
+        } 
+    },
+
+    {
+        name: 'FastMD5',
+        source: 'https://github.com/iReal/FastMD5',
+        hash_function: 'md5',
+        compute: function(text){ 
+            return FastMD5(text);
         } 
     },
 
