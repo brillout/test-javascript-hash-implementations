@@ -1,29 +1,18 @@
 // not tried -- would require to extract sha256 algorithm from test script
 // https://github.com/Kukunin/asm.js-benchmark
 
-// https://github.com/crypto-browserify/sha.js
 import createHash from 'sha.js';
 
-// http://pajhome.org.uk/crypt/md5/index.html
-// 12K unminified
 import pajhome from 'hash-implementations/pajhome_sha256';
 
-// http://anmar.eu.org/projects/jssha2/
-// 3.6K unminified
 import jssha2 from 'hash-implementations/jsSha2/sha256';
 
-// https://github.com/digitalbazaar/forge
 import forge from 'hash-implementations/forge.min';
 
-// https://github.com/chrisveness/crypto
-// 7.1K unminified
 import chrisveness from 'hash-implementations/chrisveness_sha256';
 
-// https://github.com/dchest/blake2s-js
-// 12K
 import BLAKE2s from 'hash-implementations/blake2s.min';
 
-// https://github.com/brianloveswords/buffer-crc32
 import buffer_crc32 from 'buffer-crc32';
 
 const IMPLEMENTATIONS = [ 
