@@ -1,6 +1,6 @@
 import IMPLEMENTATIONS from './hash-implementations';
 
-const LIBS = [ 
+const LIBRARIES = [ 
     'three.min.js',
     'jquery-2.1.4.min.js',
     'angular.min.js',
@@ -52,12 +52,22 @@ function req(url, callback) {
 
 (function(){
 
-    var results = {}; for(var lib of LIBS) { results[lib] = []; };
-    var source_codes = {};
+    var results = {}; for(var lib of LIBRARIES) { results[lib] = []; };
+    var libraries = {};
     var n_resp_count = 0;
 
-    LIBS.forEach(function(lib){
+    LIBRARIES.forEach(function(lib){
         req('libs/'+lib, function(source_code){
+
+            libraries[lib] = {
+                source_code: source_code,
+                has_wide_char: (function(str){
+                    for( var i = 0; i < str.length; i++ ){
+                        if ( str.charCodeAt(i) >>> 8 ) return true;
+                    }
+                    return false;
+                })(source_code)
+            };
 
             IMPLEMENTATIONS.forEach(function(algo){
 
@@ -75,8 +85,6 @@ function req(url, callback) {
                     execTime = '-';
                 }
 
-                source_codes[lib] = source_code;
-
                 results[lib].push(Object.assign(
                     {},
                     algo,
@@ -92,9 +100,9 @@ function req(url, callback) {
 
             });
 
-            if( ++n_resp_count === LIBS.length ) {
+            if( ++n_resp_count === LIBRARIES.length ) {
                 sort_results(results);
-                print_results(results, source_codes);
+                print_results(results, libraries);
             }
         });
     });
@@ -118,14 +126,15 @@ function sort_results(results){
 var out = document.getElementById("results");
 out.innerHTML = 'computing...';
 
-function print_results(results, source_codes){
+function print_results(results, libraries){
 
         out.innerHTML = "";
 
         for(var lib in results) {
 
             var title = document.createElement("h3");
-            title.innerHTML = "Time to compute hash of "+lib+" (~"+Math.round(source_codes[lib].length/1000)+"KB)";
+            title.innerHTML = "Time to compute hash of "+lib+" [~ "+Math.round(libraries[lib].source_code.length/1000)+" KB]";
+            if(libraries[lib].has_wide_char) title.innerHTML += " [contains wide character]";
 
             var table = document.createElement("table");
             table.style.borderSpacing = '20px 0px';
