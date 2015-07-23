@@ -148,7 +148,7 @@ function print_results(results, libraries){
 
             var table = document.createElement("table");
             table.style.borderSpacing = '20px 0px';
-            table.style.fontFamilly = 'monospace';
+            table.style.fontFamily = 'monospace';
             var header = document.createElement("tr");
             header.innerHTML = "<td>time (ms)</td><td>Hash Function</td><td>Implementation</td><td>hash</td>";
             table.appendChild(header);
